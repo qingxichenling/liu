@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width , initial-scale=1">
+  <!-- 
+   增加这句后，可以看到浏览器的DevTools面板的模拟移动设备状态的变化
+  -->
+  <style>
+   *{
+    margin: 10px;
+    text-align: center;
+   }
+
+    header{
+      border: 2px solid blue;
+      height: 10%;
+      font-size: 1.66em;
+      background-color: rgb(212, 107, 137);
+    }
+    main{
+      border: 2px solid blue;
+      height: 70%;
+      font-size: 0.8em;
+      text-align: left ;
+      background-color: rgb(162, 110, 168);
+    }
+    nav{
+      border: 2px solid blue;
+      height: 10%;
+      background-color: rgb(230, 246, 10);
+         }
+    nav button{
+	 font-size: 1.1em;
+	}
+    footer{
+      border: 2px solid blue;
+      height: 10%;
+      background-color: rgb(120, 110, 168);
+    }
+  </style>
+  <title> 移动互联时代的响应式设计（窄屏） </title>
+ </head> 
+ <body>
+  <header>
+	<p id="book">
+    《计算机类读物推荐》
+    </p> 
+  </header>
+  <nav>
+    <button>导航一</button>
+    <button>导航二</button>
+    <button>导航三</button>
+  </nav>
+  <main id = 'main'>
+    主题内容： ‘读好书、练思维、勤编程’ @master 计算思维系列图书读物</br>
+      1.编程语言类：</br>
+
+      《Java 核心技术卷 I：基础知识》（第 11 版）</br>
+      
+      《Python 编程：从入门到实践》（第 2 版）</br>
+      
+      2. 数据结构与算法类：</br>
+      
+      
+      《算法导论》（第 3 版）</br>
+      《大话数据结构》</br>
+      
+      3. 计算机基础类：</br>
+  
+      
+      《计算机网络》（第 7 版）</br>
+      
+      《计算机组成与设计》</br>
+      4. 软件工程类：</br>
+      
+      
+      《设计模式：可复用面向对象软件的基础》</br>
+      
+      《重构：改善既有代码的设计》</br>
+  </main> 
+
+  <footer> 
+   <p id="statusInfo">
+     刘强 江西科技师范大学 2021-2025
+	 </p>
+  </footer> 
+
+ <script> 
+    var UI = {};
+    UI.appWidth = window.innerWidth > 600 ? 600 : window.innerWidth ;
+    UI.appHeight = window.innerHeight;
+ 	const LETTERS = 22 ;
+	const baseFont = UI.appWidth / LETTERS;
+ 
+	//通过更改body对象的字体大小，这个属性能够遗传其子子孙孙
+    document.body.style.fontSize = baseFont + "px"; 
+    //通过把body对象的宽度和高度设置为设备/屏幕的宽度和高度，实现全屏。
+    //通过CSS对子对象百分比（纵向）的配合，从而实现响应式设计的目标。
+    document.body.style.width = UI.appWidth - 2*baseFont + "px" ;
+    document.body.style.height = UI.appHeight - 4*baseFont + "px";
+ </script>
+ </body>
+</html>
